@@ -8,6 +8,7 @@ export default class App extends Component {
     links: [],
     btnText: 'Найти!',
     image: null,
+    loading: false,
     err: null
   }
 
@@ -25,6 +26,7 @@ export default class App extends Component {
   // Поиск гифки
   searchGIF = (e) => {
     e.preventDefault();
+    this.setState({ loading: true });
 
     const phrase = this.state.searchText;
 
@@ -44,6 +46,7 @@ export default class App extends Component {
         });
 
         this.setState({
+          loading: false, 
           links,
           btnText: 'Ещё!'
         });
@@ -51,7 +54,9 @@ export default class App extends Component {
         this.generateImage();
       });
     } else {
-      this.setState({ err: 'Введите слово' })
+      this.setState({ 
+        loading: false, 
+        err: 'Введите слово' })
     }
   }
 
@@ -73,15 +78,37 @@ export default class App extends Component {
   }
 
   render() {
-    const { links, btnText, image, err: error } = this.state;
+    const { links, btnText, image, err: error, loading } = this.state;
 
+    const preloader = (
+      <div className="lds-css ng-scope">
+        <div className="lds-ellipsis">
+          <div>
+            <div></div>
+          </div>
+          <div>
+            <div></div>
+          </div>
+          <div>
+            <div></div>
+          </div>
+          <div>
+            <div></div>
+          </div>
+          <div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    )
     return (
       <div className="App">
         <header className="App-header">
           <form className="form" onSubmit={ this.searchGIF }>
             <h1 className="title">Найди свою гифку!</h1>
             <div className="search-result">
-              { links.length !== 0 ? <img src={image} alt=""/> : null }
+              { loading ? preloader : null }
+              { links.length !== 0 && loading === false ? <img src={image} alt=""/> : null }
             </div>
             <div className="search-bar">
               <input type="text" onChange={this.onInputChange}/>
