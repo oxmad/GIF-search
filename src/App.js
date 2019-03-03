@@ -29,7 +29,7 @@ export default class App extends Component {
     const phrase = this.state.searchText;
 
     if (phrase.trim() !== '') {
-      fetch(`http://api.giphy.com/v1/gifs/search?q=${phrase}&api_key=SccsoCNcduBUF6EiYr9iHKfb90UuRRbQ&limit=25`,
+      fetch(`https://api.giphy.com/v1/gifs/search?q=${phrase}&api_key=SccsoCNcduBUF6EiYr9iHKfb90UuRRbQ&limit=25`,
       {
         method: "GET"
       })
