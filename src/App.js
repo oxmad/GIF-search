@@ -31,7 +31,7 @@ export default class App extends Component {
     const phrase = this.state.searchText;
 
     if (phrase.trim() !== '') {
-      fetch(`https://api.giphy.com/v1/gifs/search?q=${phrase}&api_key=SccsoCNcduBUF6EiYr9iHKfb90UuRRbQ&limit=25`,
+      fetch(`https://api.giphy.com/v1/gifs/search?q=${phrase}&api_key=SccsoCNcduBUF6EiYr9iHKfb90UuRRbQ&limit=150`,
       {
         method: "GET"
       })
@@ -63,8 +63,8 @@ export default class App extends Component {
   // Генерируем результат
   generateImage = () => {
     const { links } = this.state;
-
-    const randomNum = Math.floor(Math.random() * (24 - 0)) + 0;
+    
+    const randomNum = Math.floor(Math.random() * (149 - 0)) + 0;
     
     links.map((image, index) => {
       if (index === randomNum) {
@@ -72,7 +72,7 @@ export default class App extends Component {
           image: image
         });
       };
-
+      
       return false;
     });
   }
