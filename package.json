@@ -4,10 +4,14 @@
   "private": true,
   "homepage": "https://oxmad.github.io/GIF-search/",
   "dependencies": {
+    "axios": "^0.19.0",
     "giphy-js-sdk-core": "^1.0.6",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-scripts": "2.1.5"
+    "react-redux": "^7.1.0",
+    "react-scripts": "2.1.5",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -28,6 +32,8 @@
   ],
   "devDependencies": {
     "gh-pages": "^2.0.1",
+    "redux-devtools": "^3.5.0",
+    "redux-devtools-extension": "^2.13.8",
     "webpack-config": "^7.5.0"
   }
 }
