@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { setCurrentImage, setError, setImages } from '../../actions';
+import { setError, setImages, setRequestValue } from '../../actions';
 import { loadData } from '../../api';
-import { getRandomNumber } from '../../utils';
+import { Loader } from '../Loader';
 import { Form } from './Form';
 
 const FormContainer = ({
   data,
-  image,
   error,
   setImages,
-  setCurrentImage,
   setError,
+  requestValue,
+  setRequestValue,
 }) => {
   const [loadingState, setLoadingState] = useState(false);
   const [searchValue, setSearchValue] = useState('');
@@ -28,29 +28,46 @@ const FormContainer = ({
 
       setImages(result);
 
-      setCurrentImage(result[getRandomNumber(0, result.length)].url);
+      setRequestValue(value);
 
       setLoadingState(false);
-    } catch {
-      setError('Упс! Проблема с запросом, попробуй другое слово :(');
+    } catch (e) {
+      setError('Request fail, sorry :(');
+      console.error(e);
     }
   };
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
 
-    return loadContent(searchValue);
+    if (!searchValue.trim()) {
+      setSearchValue('');
+      return setError('Field is empty :(');
+    }
+
+    if (requestValue.trim() === searchValue.trim()) {
+      const newData = [...data];
+
+      newData.shift();
+
+      return setImages(newData);
+    }
+
+    await loadContent(searchValue);
   };
 
   const formProps = {
     data,
-    image,
     error,
     searchValue,
     setSearchValue,
     loadingState,
     onSubmit,
   };
+
+  if (loadingState) {
+    return <Loader />;
+  }
 
   return <Form {...formProps} />;
 };
@@ -61,8 +78,8 @@ const ConnectedForm = connect(
   }),
   {
     setImages,
-    setCurrentImage,
     setError,
+    setRequestValue,
   },
 )(FormContainer);
 

@@ -1,0 +1,19 @@
+@keyframes :global(slideUp) {
+  from {
+    transform: translateY(150%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes :global(slideDown) {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(150%);
+  }
+}

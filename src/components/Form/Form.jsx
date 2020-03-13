@@ -1,40 +1,37 @@
 import React from 'react';
 
-import { Loader } from '../Loader';
-import { Styled } from './Form.styled';
+import styled from './Form.module.scss';
 
 export const Form = ({
   data,
-  image,
-  error,
-  loadingState,
   onSubmit,
   searchValue,
   setSearchValue,
-}) => {
-  if (loadingState) {
-    return <Loader />;
-  }
-
-  const buttonText = Boolean(data.length) ? 'Ещё!' : 'Найти!';
-
-  return (
-    <form onSubmit={onSubmit}>
-      <Styled.Title>Find you GIF!</Styled.Title>
-      {Boolean(data.length) && (
-        <Styled.ResultContainer>
-          <Styled.Image src={image} alt="" />
-        </Styled.ResultContainer>
-      )}
-      <Styled.Bar>
-        <Styled.Input
+}) => (
+  <>
+    <h1 className={styled.title}>Find your GIF!</h1>
+    {Boolean(data.length) && (
+      <div className={styled.resultContainer}>
+        <img
+          className={styled.image}
+          key={data[0].url}
+          src={data[0].url}
+          alt=""
+        />
+      </div>
+    )}
+    <div className={styled.bar}>
+      <form className={styled.form} onSubmit={onSubmit}>
+        <input
+          className={styled.input}
           type="text"
           onChange={e => setSearchValue(e.target.value)}
           value={searchValue}
         />
-        <Styled.Button type="submit">{buttonText}</Styled.Button>
-      </Styled.Bar>
-      {error && <p className="error">{error}</p>}
-    </form>
-  );
-};
+        <button className={styled.button} type="submit" tabIndex={0}>
+          {data.length ? 'Ещё!' : 'Найти!'}
+        </button>
+      </form>
+    </div>
+  </>
+);

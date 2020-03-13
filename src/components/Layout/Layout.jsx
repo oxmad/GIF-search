@@ -1,4 +1,17 @@
 import React from 'react';
-import { StyledLayout } from './Layout.styled';
+import classNames from 'classnames';
 
-export const Layout = ({ children }) => <StyledLayout>{children}</StyledLayout>;
+import { Notification } from '../Notification/Notification';
+import { layout, main, blurred } from './Layout.module.scss';
+import { connect } from 'react-redux';
+
+const Layout = ({ error, children }) => (
+  <div className={layout}>
+    {error && <Notification />}
+    <main className={classNames(main, { [blurred]: error })}>{children}</main>
+  </div>
+);
+
+const connectedLayout = connect(({ error }) => ({ error }), null)(Layout);
+
+export { connectedLayout as Layout };

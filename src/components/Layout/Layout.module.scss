@@ -1,0 +1,22 @@
+.layout {
+  width: 100%;
+  background-image: linear-gradient(45deg, #303F9F 25%,  #7B1FA2 75%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.main {
+  padding: 0 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  transition: filter 500ms ease;
+}
+
+.blurred {
+  filter: blur(5px);
+}

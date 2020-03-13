@@ -12,6 +12,7 @@ export const loadData = async value => {
 
     return result.map(item => ({
       id: item.id,
+      title: item.title,
       url: item.images.downsized.url,
     }));
   } catch (e) {
