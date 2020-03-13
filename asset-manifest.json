@@ -1,13 +1,13 @@
 {
-  "main.css": "/GIF-search/static/css/main.2b0e8bfe.chunk.css",
-  "main.js": "/GIF-search/static/js/main.1fc55781.chunk.js",
-  "main.js.map": "/GIF-search/static/js/main.1fc55781.chunk.js.map",
+  "main.css": "/GIF-search/static/css/main.d88776c9.chunk.css",
+  "main.js": "/GIF-search/static/js/main.e99edce1.chunk.js",
+  "main.js.map": "/GIF-search/static/js/main.e99edce1.chunk.js.map",
   "runtime~main.js": "/GIF-search/static/js/runtime~main.6a81e373.js",
   "runtime~main.js.map": "/GIF-search/static/js/runtime~main.6a81e373.js.map",
-  "static/js/2.7e1f9513.chunk.js": "/GIF-search/static/js/2.7e1f9513.chunk.js",
-  "static/js/2.7e1f9513.chunk.js.map": "/GIF-search/static/js/2.7e1f9513.chunk.js.map",
+  "static/js/2.387b5dbb.chunk.js": "/GIF-search/static/js/2.387b5dbb.chunk.js",
+  "static/js/2.387b5dbb.chunk.js.map": "/GIF-search/static/js/2.387b5dbb.chunk.js.map",
   "index.html": "/GIF-search/index.html",
-  "precache-manifest.62439edea5cdbf779116713936349df4.js": "/GIF-search/precache-manifest.62439edea5cdbf779116713936349df4.js",
+  "precache-manifest.97d0709c4415ed77692c29eb384a953a.js": "/GIF-search/precache-manifest.97d0709c4415ed77692c29eb384a953a.js",
   "service-worker.js": "/GIF-search/service-worker.js",
-  "static/css/main.2b0e8bfe.chunk.css.map": "/GIF-search/static/css/main.2b0e8bfe.chunk.css.map"
+  "static/css/main.d88776c9.chunk.css.map": "/GIF-search/static/css/main.d88776c9.chunk.css.map"
 }
