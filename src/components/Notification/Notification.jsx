@@ -13,7 +13,7 @@ const Notification = ({ error, setError }) => {
   const closeNotification = () => {
     setAnimatedStatus(!animated);
 
-    setTimeout(() => setError(null), 500);
+    setTimeout(() => setError(null), 200);
   };
 
   useOutsideClick(containerRef, closeNotification);

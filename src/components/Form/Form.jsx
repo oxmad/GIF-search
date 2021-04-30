@@ -25,6 +25,7 @@ export const Form = ({
         <input
           className={styled.input}
           type="text"
+          placeholder="Pizza!"
           onChange={e => setSearchValue(e.target.value)}
           value={searchValue}
         />

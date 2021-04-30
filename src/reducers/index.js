@@ -37,9 +37,7 @@ const reducer = (state = initialState, action) => {
         requestValue: payload,
       };
     default:
-      return {
-        ...state,
-      };
+      return state;
   }
 };
 

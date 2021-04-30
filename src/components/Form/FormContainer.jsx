@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { setError, setImages, setRequestValue } from '../../actions';
 import { loadData } from '../../api';
@@ -16,10 +16,6 @@ const FormContainer = ({
   const [loadingState, setLoadingState] = useState(false);
   const [searchValue, setSearchValue] = useState('');
 
-  useEffect(() => {
-    document.title = 'GIF-Search';
-  }, []);
-
   const loadContent = async value => {
     try {
       setLoadingState(true);
@@ -32,7 +28,7 @@ const FormContainer = ({
 
       setLoadingState(false);
     } catch (e) {
-      setError('Request fail, sorry :(');
+      setError('Request failed, try again later.');
       console.error(e);
     }
   };
@@ -42,7 +38,7 @@ const FormContainer = ({
 
     if (!searchValue.trim()) {
       setSearchValue('');
-      return setError('Field is empty :(');
+      return setError('Field is empty.');
     }
 
     if (requestValue.trim() === searchValue.trim()) {

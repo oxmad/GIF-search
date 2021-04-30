@@ -1,8 +1,10 @@
 import React from 'react';
 
+import styles from './Loader.module.scss';
+
 export const Loader = () => (
-  <div className="lds-css ng-scope">
-    <div className="lds-ellipsis">
+  <div>
+    <div className={styles.circle}>
       <div>
         <div/>
       </div>
