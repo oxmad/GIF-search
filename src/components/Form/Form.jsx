@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { EMPTY_FIELD_ERROR } from "@constants/errors";
@@ -26,6 +26,10 @@ export const Form = () => {
 
   const dispatch = useDispatch();
 
+  const hasDiff = useMemo(() => {
+    return searchValue.trim().toLowerCase() !== searchText.trim().toLowerCase()
+  }, [searchValue, searchText])
+
   const onSubmit = async e => {
     e.preventDefault();
 
@@ -37,7 +41,7 @@ export const Form = () => {
       return dispatch(setError(EMPTY_FIELD_ERROR));
     }
 
-    if (searchValue.trim().toLowerCase() !== searchText.trim().toLowerCase()) {
+    if (hasDiff) {
       dispatch(getImages(searchValue));
       dispatch(setSearchText(searchValue));
       return;
@@ -60,7 +64,7 @@ export const Form = () => {
           value={searchValue}
         />
         <button className={styles.button} type="submit">
-          Search
+          {hasDiff ? 'Next' : 'Search'}
         </button>
       </div>
       {error && <p className={styles.error}>{error}</p>}
