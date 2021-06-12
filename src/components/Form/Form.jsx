@@ -27,8 +27,8 @@ export const Form = () => {
   const dispatch = useDispatch();
 
   const hasDiff = useMemo(() => {
-    return searchValue.trim().toLowerCase() !== searchText.trim().toLowerCase()
-  }, [searchValue, searchText])
+    return searchValue.trim().toLowerCase() !== searchText.trim().toLowerCase();
+  }, [searchValue, searchText]);
 
   const onSubmit = async e => {
     e.preventDefault();
@@ -64,7 +64,7 @@ export const Form = () => {
           value={searchValue}
         />
         <button className={styles.button} type="submit">
-          {hasDiff ? 'Next' : 'Search'}
+          {hasDiff ? "Search" : "Next"}
         </button>
       </div>
       {error && <p className={styles.error}>{error}</p>}

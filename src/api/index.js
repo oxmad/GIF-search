@@ -18,6 +18,6 @@ export const fetchImages = async value => {
       url: item.images.downsized.url,
     }));
   } catch (e) {
-    console.log(e);
+    throw e;
   }
 };
