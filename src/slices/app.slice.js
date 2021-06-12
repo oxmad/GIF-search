@@ -1,44 +1,62 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const DEFAULT_ERROR_MESSAGE = "Request failed. Try again later.";
-
-const getImages = createAsyncThunk("app/getImages", loadData);
+import { fetchImages } from "@api/index";
+import { DEFAULT_ERROR_MESSAGE, NO_RESULTS_ERROR } from "@constants/errors";
 
 const initialState = {
-    data: [],
-    isLoading: false,
-    currentImage: null,
-    viewedIds: [],
-    error: null,
-    searchText: "",
+  data: [],
+  isLoading: false,
+  viewedIds: [],
+  error: null,
+  searchText: "",
 };
 
-createSlice({
-    name: "app",
-    initialState,
-    reducers: {
-        setError: (state, action) => {
-            state.error = action.payload;
-        },
-    },
-    extraReducers: {
-        [getImages.pending]: state => {
-            state.isLoading = true;
-        },
-        [getImages.fulfilled]: (state, action) => {
-            const [firstImage] = action.payload;
-            state.data = action.payload;
+export const getImages = createAsyncThunk("app/getImages", fetchImages);
 
-            if (firstImage) {
-                state.currentImage = firstImage;
-                state.viewedIds.push(firstImage.id);
-            }
-
-            state.isLoading = false;
-        },
-        [getImages.rejected]: state => {
-            state.isLoading = false;
-            state.error = DEFAULT_ERROR_MESSAGE;
-        },
+const appSlice = createSlice({
+  name: "app",
+  initialState,
+  reducers: {
+    setError(state, action) {
+      state.error = action.payload;
     },
+    clearError(state) {
+      state.error = null;
+    },
+    setSearchText(state, action) {
+      state.searchText = action.payload;
+    },
+    addViewedImageId(state, action) {
+      state.viewedIds.push(action.payload);
+    },
+  },
+  extraReducers: {
+    [getImages.pending]: state => {
+      state.isLoading = true;
+      state.viewedIds = [];
+    },
+    [getImages.fulfilled]: (state, action) => {
+      state.data = action.payload;
+      const [firstImage] = action.payload;
+
+      if (!firstImage) {
+        state.error = NO_RESULTS_ERROR;
+      }
+
+      state.isLoading = false;
+    },
+    [getImages.rejected]: state => {
+      state.isLoading = false;
+      state.error = DEFAULT_ERROR_MESSAGE;
+    },
+  },
 });
+
+export const {
+  setError,
+  clearError,
+  setSearchText,
+  addViewedImageId,
+} = appSlice.actions;
+
+export default appSlice.reducer;

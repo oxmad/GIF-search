@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@actions/*": ["./actions/*"],
+      "@api/*": ["./api/*"],
+      "@api/index": ["./api/index.js"],
+      "@components/*": ["./components/*"],
+      "@constants/*": ["./constants/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@reducers/*": ["./reducers/*"],
+      "@store/*": ["./store/*"],
+      "@selectors/*": ["./selectors/*"],
+      "@slices/*": ["./slices/*"],
+      "@styles/*": ["./styles/*"],
+      "@utils/*": ["./utils/*"]
+    }
+  }
+}
