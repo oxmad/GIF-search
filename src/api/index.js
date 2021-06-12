@@ -1,14 +1,16 @@
-import axios from 'axios';
+import axios from "axios";
 
-export const loadData = async value => {
+export const fetchImages = async value => {
   try {
-    const apiKey = 'SccsoCNcduBUF6EiYr9iHKfb90UuRRbQ&limit=150';
-
     const {
       data: { data: result },
-    } = await axios.get(
-      `https://api.giphy.com/v1/gifs/search?q=${value}&api_key=${apiKey}`,
-    );
+    } = await axios.get(`https://api.giphy.com/v1/gifs/search`, {
+      params: {
+        q: value,
+        limit: 150,
+        api_key: process.env.REACT_APP_API_KEY,
+      },
+    });
 
     return result.map(item => ({
       id: item.id,

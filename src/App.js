@@ -1,16 +1,21 @@
-import React from 'react';
-import './App.scss';
+import { shallowEqual, useSelector } from "react-redux";
 
 // Components
-import { Layout } from './components/Layout';
-import { FormContainer } from './components/Form/FormContainer';
+import { Layout } from "@components/Layout";
+import { Form } from "@components/Form";
+import { Frame } from "@components/Frame";
+import { isLoadingSelector } from "@selectors/app.selectors";
+import { Loader } from "@components/Loader";
 
-const App = () => (
-  <div className="App">
+const App = () => {
+  const isLoading = useSelector(isLoadingSelector, shallowEqual);
+
+  return (
     <Layout>
-      <FormContainer />
+      {isLoading ? <Loader /> : <Frame />}
+      <Form />
     </Layout>
-  </div>
-);
+  );
+};
 
 export default App;
