@@ -1,13 +1,20 @@
 {
-  "main.css": "/GIF-search/static/css/main.d88776c9.chunk.css",
-  "main.js": "/GIF-search/static/js/main.e99edce1.chunk.js",
-  "main.js.map": "/GIF-search/static/js/main.e99edce1.chunk.js.map",
-  "runtime~main.js": "/GIF-search/static/js/runtime~main.6a81e373.js",
-  "runtime~main.js.map": "/GIF-search/static/js/runtime~main.6a81e373.js.map",
-  "static/js/2.387b5dbb.chunk.js": "/GIF-search/static/js/2.387b5dbb.chunk.js",
-  "static/js/2.387b5dbb.chunk.js.map": "/GIF-search/static/js/2.387b5dbb.chunk.js.map",
-  "index.html": "/GIF-search/index.html",
-  "precache-manifest.97d0709c4415ed77692c29eb384a953a.js": "/GIF-search/precache-manifest.97d0709c4415ed77692c29eb384a953a.js",
-  "service-worker.js": "/GIF-search/service-worker.js",
-  "static/css/main.d88776c9.chunk.css.map": "/GIF-search/static/css/main.d88776c9.chunk.css.map"
+  "files": {
+    "main.css": "/GIF-search/static/css/main.20c32706.chunk.css",
+    "main.js": "/GIF-search/static/js/main.b94ece31.chunk.js",
+    "main.js.map": "/GIF-search/static/js/main.b94ece31.chunk.js.map",
+    "runtime-main.js": "/GIF-search/static/js/runtime-main.5872341e.js",
+    "runtime-main.js.map": "/GIF-search/static/js/runtime-main.5872341e.js.map",
+    "static/js/2.e60577e9.chunk.js": "/GIF-search/static/js/2.e60577e9.chunk.js",
+    "static/js/2.e60577e9.chunk.js.map": "/GIF-search/static/js/2.e60577e9.chunk.js.map",
+    "index.html": "/GIF-search/index.html",
+    "static/css/main.20c32706.chunk.css.map": "/GIF-search/static/css/main.20c32706.chunk.css.map",
+    "static/js/2.e60577e9.chunk.js.LICENSE.txt": "/GIF-search/static/js/2.e60577e9.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5872341e.js",
+    "static/js/2.e60577e9.chunk.js",
+    "static/css/main.20c32706.chunk.css",
+    "static/js/main.b94ece31.chunk.js"
+  ]
 }
