@@ -64,7 +64,7 @@ export const Form = () => {
           value={searchValue}
         />
         <button className={styles.button} type="submit">
-          {hasDiff ? "Search" : "Next"}
+          {searchValue.trim() === "" || hasDiff ? "Search" : "Next"}
         </button>
       </div>
       {error && <p className={styles.error}>{error}</p>}
